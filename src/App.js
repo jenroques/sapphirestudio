@@ -1,22 +1,23 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Home from './Home'
+import bootstrap from 'bootstrap';
+import { MDBAnimation } from 'mdb-react-ui-kit';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App"  >
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <MDBAnimation
+          reset={true}
+          tag='i'
+          animation='fade-in'
+          start='onLoad'
+          duration={2000}
         >
-          Learn React
-        </a>
+          <Home />
+        </MDBAnimation>
+
       </header>
     </div>
   );
