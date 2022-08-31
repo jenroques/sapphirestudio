@@ -1,23 +1,24 @@
 import React from 'react'
-import {
-    MDBCard,
-    MDBCardBody,
-    MDBCardText,
-    MDBCardImage
-} from 'mdb-react-ui-kit';
-
 import Logo from "./images/logo.jpg"
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 
 export default function () {
     return (
-        <MDBCard>
-            <MDBCardBody>
-                <img src={Logo} alt="logo" />
-                <MDBCardText>
-                    Coming Soon
-                </MDBCardText>
-            </MDBCardBody>
-        </MDBCard>
+        <Card>
+            <Box>
+                <CardContent>
+                    <img src={Logo} alt="logo" />
+                    <Typography>
+                        Coming Soon
+                    </Typography>
+                </CardContent>
+            </Box>
+        </Card>
     )
 }
