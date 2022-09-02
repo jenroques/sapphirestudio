@@ -1,24 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from "./images/logo.jpg"
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+
+import {
+    Grow
+} from '@mui/material'
 
 
-export default function () {
+export default function Home() {
+    const [open, setOpen] = useState(true)
+
     return (
-        <Card>
-            <Box>
-                <CardContent>
-                    <img src={Logo} alt="logo" />
-                    <Typography>
-                        Coming Soon
-                    </Typography>
-                </CardContent>
-            </Box>
-        </Card>
+        <Grow
+            in={open}
+            style={{ transformOrigin: '10 10 10' }}
+            {...(open ? { timeout: 4000 } : {})}
+        >
+            <img src={Logo} alt="logo" />
+        </Grow>
     )
 }
