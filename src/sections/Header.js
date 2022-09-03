@@ -5,6 +5,10 @@ import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
+import Portfolio from './Portfolio';
+import Appointment from './Appointment';
+import About from './About';
+import Home from './Home';
 
 const blue = {
     50: '#001125',
@@ -88,17 +92,19 @@ const TabsList = styled(TabsListUnstyled)(
   `,
 );
 
-export default function UnstyledTabsCustomized() {
+export default function Header() {
     return (
         <TabsUnstyled defaultValue={0}>
             <TabsList>
-                <Tab>Portfolio</Tab>
                 <Tab>Home</Tab>
+                <Tab>Portfolio</Tab>
+                <Tab>About Sheana Helton</Tab>
                 <Tab>Request Appointment</Tab>
             </TabsList>
-            <TabPanel value={0}></TabPanel>
-            <TabPanel value={1}></TabPanel>
-            <TabPanel value={2}></TabPanel>
+            <TabPanel value={0}> <Home /> </TabPanel>
+            <TabPanel value={1}> <Portfolio /> </TabPanel>
+            <TabPanel value={2}> <About /> </TabPanel>
+            <TabPanel value={3}> <Appointment /> </TabPanel>
         </TabsUnstyled>
     );
 }

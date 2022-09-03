@@ -1,5 +1,5 @@
 import './App.css';
-import Home from './Home'
+import Header from './sections/Header'
 
 
 function App() {
@@ -7,8 +7,7 @@ function App() {
     <div className="App"  >
       <header className="App-header">
 
-        <Home />
-
+        <Header />
 
       </header>
     </div>

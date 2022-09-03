@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import Logo from "./images/logo.jpg"
+import Logo from '../images/logo.jpg'
 
 import {
     Grow
 } from '@mui/material'
 
-import Header from "./sections/Header";
 
 
 export default function Home() {
@@ -13,7 +12,7 @@ export default function Home() {
 
     return (
         <>
-            <Header />
+
 
             <Grow
                 in={open}
