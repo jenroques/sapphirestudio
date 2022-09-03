@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import Logo from '../images/logo.jpg'
 
 import {
-    Grow
+    Grow,
+    Paper,
 } from '@mui/material'
 
 
@@ -13,14 +14,15 @@ export default function Home() {
     return (
         <>
 
-
-            <Grow
-                in={open}
-                style={{ transformOrigin: '10 10 10' }}
-                {...(open ? { timeout: 5000 } : {})}
-            >
-                <img src={Logo} alt="logo" />
-            </Grow>
+            <Paper sx={{ width: 792, height: 612, backgroundColor: "#ffebbe" }}>
+                <Grow
+                    in={open}
+                    style={{ transformOrigin: '10 10 10' }}
+                    {...(open ? { timeout: 5000 } : {})}
+                >
+                    <img src={Logo} alt="logo" />
+                </Grow>
+            </Paper>
         </>
     )
 }

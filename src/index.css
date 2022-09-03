@@ -1,12 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@200&display=swap');
+@font-face {
+  font-family: "Neris-Thin";
+  src: local("Neris-Thin"),
+    url("./fonts/neris-cufonfonts-webfont/Neris-Thin.woff") format("woff");
+}
 
 body {
   margin: 0;
-  font-family: 'Alumni Sans', sans-serif;
+  font-family: 'Neris-Thin', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: 'Alumni Sans', sans-serif;
+  font-family: 'Neris-Thin', sans-serif;
 }

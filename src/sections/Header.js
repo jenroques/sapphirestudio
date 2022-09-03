@@ -41,7 +41,7 @@ const Tab = styled(TabUnstyled)`
   font-family: Alumni Sans, sans-serif;
   color: #ffebbe;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: .85rem;
   font-weight: bold;
   background-color: transparent;
   width: 100%;
@@ -97,13 +97,13 @@ export default function Header() {
         <TabsUnstyled defaultValue={0}>
             <TabsList>
                 <Tab>Home</Tab>
-                <Tab>Portfolio</Tab>
                 <Tab>About Sheana Helton</Tab>
+                <Tab>Portfolio</Tab>
                 <Tab>Request Appointment</Tab>
             </TabsList>
             <TabPanel value={0}> <Home /> </TabPanel>
-            <TabPanel value={1}> <Portfolio /> </TabPanel>
-            <TabPanel value={2}> <About /> </TabPanel>
+            <TabPanel value={1}> <About /> </TabPanel>
+            <TabPanel value={2}> <Portfolio /> </TabPanel>
             <TabPanel value={3}> <Appointment /> </TabPanel>
         </TabsUnstyled>
     );

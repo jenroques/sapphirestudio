@@ -1,6 +1,8 @@
 import './App.css';
 import Header from './sections/Header'
 
+import "./fonts/neris-cufonfonts-webfont/Neris-Thin.woff"
+
 
 function App() {
   return (
