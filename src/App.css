@@ -39,7 +39,7 @@ code {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #001125;
 }
 
 .App-link {
@@ -54,4 +54,12 @@ code {
   to {
     transform: rotate(360deg);
   }
+}
+
+th {
+  text-align: center;
+  background: #001125;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }

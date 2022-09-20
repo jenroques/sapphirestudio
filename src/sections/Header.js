@@ -11,29 +11,29 @@ import About from './About';
 import Home from './Home';
 
 const blue = {
-    50: '#001125',
-    100: '#001125',
-    200: '#001125',
-    300: '#001125',
-    400: '#001125',
-    500: '#001125',
-    600: '#001125',
-    700: '#001125',
-    800: '#001125',
-    900: '#001125',
+  50: '#001125',
+  100: '#001125',
+  200: '#001125',
+  300: '#001125',
+  400: '#001125',
+  500: '#001125',
+  600: '#001125',
+  700: '#001125',
+  800: '#001125',
+  900: '#001125',
 };
 
 const gold = {
-    50: '#fdf9f0',
-    100: '#fff5df',
-    200: '#ffeabb',
-    300: '#eec88b',
-    400: '#ecc484',
-    500: '#a8845b',
-    600: '#8a6741',
-    700: '#8c6943',
-    800: '#8c6943',
-    900: '#fff1d2',
+  50: '#fdf9f0',
+  100: '#fff5df',
+  200: '#ffeabb',
+  300: '#eec88b',
+  400: '#ecc484',
+  500: '#a8845b',
+  600: '#8a6741',
+  700: '#8c6943',
+  800: '#8c6943',
+  900: '#fff1d2',
 
 };
 
@@ -79,7 +79,7 @@ const TabPanel = styled(TabPanelUnstyled)`
 `;
 
 const TabsList = styled(TabsListUnstyled)(
-    ({ theme }) => `
+  ({ theme }) => `
   min-width: 800px;
   background-color: ${blue[500]};
   border-radius: 12px;
@@ -92,19 +92,21 @@ const TabsList = styled(TabsListUnstyled)(
   `,
 );
 
+
+
 export default function Header() {
-    return (
-        <TabsUnstyled defaultValue={0}>
-            <TabsList>
-                <Tab>Home</Tab>
-                <Tab>About Sheana Helton</Tab>
-                <Tab>Portfolio</Tab>
-                <Tab>Request Appointment</Tab>
-            </TabsList>
-            <TabPanel value={0}> <Home /> </TabPanel>
-            <TabPanel value={1}> <About /> </TabPanel>
-            <TabPanel value={2}> <Portfolio /> </TabPanel>
-            <TabPanel value={3}> <Appointment /> </TabPanel>
-        </TabsUnstyled>
-    );
+  return (
+    <TabsUnstyled defaultValue={0}>
+      <TabsList>
+        <Tab>Home</Tab>
+        <Tab>About Sheana Helton</Tab>
+        <Tab>Portfolio</Tab>
+        <Tab>Request Appointment</Tab>
+      </TabsList>
+      <TabPanel value={0}> <Home /> </TabPanel>
+      <TabPanel value={1}> <About /> </TabPanel>
+      <TabPanel value={2}> <Portfolio /> </TabPanel>
+      <TabPanel value={3}> <Appointment /> </TabPanel>
+    </TabsUnstyled>
+  );
 }
