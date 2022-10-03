@@ -44,7 +44,7 @@ const Tab = styled(TabUnstyled)`
   cursor: pointer;
   font-size: .85rem;
   font-weight: bold;
-  background-color: transparent;
+  background-color: #001125;
   width: 100%;
   padding: 12px;
   margin: 16px 16px;
@@ -54,12 +54,12 @@ const Tab = styled(TabUnstyled)`
   justify-content: center;
 
   &:hover {
-    background-color: ${blue[400]};
+    background-color: #001125;
   }
 
   &:focus {
     color: #fff;
-    outline: 3px solid ${blue[200]};
+    background-color: #001125;
   }
 
   &.${tabUnstyledClasses.selected} {
@@ -77,12 +77,13 @@ const TabPanel = styled(TabPanelUnstyled)`
   width: 100%;
   font-family: IBM Plex Sans, sans-serif;
   font-size: 1.5rem;
+  background-color: #001125;
 `;
 
 const TabsList = styled(TabsListUnstyled)(
   ({ theme }) => `
   min-width: 800px;
-  background-color: ${blue[500]};
+  background-color: #001125;
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -97,15 +98,15 @@ const TabsList = styled(TabsListUnstyled)(
 
 export default function Header() {
   return (
-    <AppBar position="static">
-      <TabsUnstyled defaultValue={0}>
-        <TabsList centered>
-          <Tab>Home</Tab>
+    <AppBar position="static" sx={{ backgroundColor: '#001125' }}>
+      <TabsUnstyled defaultValue={0} sx={{ backgroundColor: '#001125' }}>
+        <TabsList centered sx={{ backgroundColor: '#001125' }} >
+          <Tab sx={{ backgroundColor: '#001125' }} >Home</Tab>
           <Tab>About Sheana Helton</Tab>
           <Tab>Portfolio</Tab>
           <Tab>Request Appointment</Tab>
         </TabsList>
-        <TabPanel value={0}> <Home /> </TabPanel>
+        <TabPanel sx={{ backgroundColor: '#001125' }} value={0}> <Home /> </TabPanel>
         <TabPanel value={1}> <About /> </TabPanel>
         <TabPanel value={2}> <Portfolio /> </TabPanel>
         <TabPanel value={3}> <Appointment /> </TabPanel>

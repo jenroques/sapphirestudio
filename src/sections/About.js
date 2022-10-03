@@ -17,24 +17,40 @@ export default function About() {
 
     const styles = {
         media: {
-            height: 540,
+            height: 600,
             marginTop: '30'
         }
     };
 
 
     return (
-        <Box>
-            <Paper sx={{ width: 1084, height: 996, backgroundColor: "#ffebbe" }}>
+        <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+        }}
+            sx={{ backgroundColor: "#ffebbe" }}>
+
+            <Paper style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            }}
+                sx={{ width: 884, height: 696, backgroundColor: "#ffebbe" }}>
                 <Grid
                     container
                     spacing={2}
                     direction="row"
-                    justify="space-between"
-                    alignItems="center"
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+
                 >
 
-                    <Card sx={{ maxWidth: 996, maxHeight: 1084, backgroundColor: "#ffeabb" }}>
+
+                    <Card >
                         <CardMedia
                             display="flex"
                             component="img"
@@ -43,13 +59,13 @@ export default function About() {
                             style={styles.media}
                         />
                     </Card>
-                    <Card sx={{ maxWidth: 996, maxHeight: 1084, backgroundColor: "#ffeabb" }} display="inline" >
+                    <Card sx={{ maxWidth: 696, maxHeight: 784, backgroundColor: "#ffeabb" }} display="inline" >
                         <CardContent style={styles.media}>
-                            <Typography align="center" gutterBottom variant="h5" component="div">
+                            <Typography align="center" gutterBottom variant="h5" component="div" sx={{ mt: 10 }}>
                                 The Sapphire Studio - Sheana Helton
                             </Typography>
-                            <Typography align="center" display="inline"
-                                variant="body2" color="text.secondary" sx={{ maxHeight: 540 }}>
+                            <Typography align="center"
+                                variant="body2" color="text.secondary" sx={{ mt: 10 }}>
                                 The Sapphire Studio is a private, appointment only salon,<br></br>
                                 owned and operated by Sheana Helton, a licensed and insured<br></br>
                                 hair stylist and makeup artist.  Sheana's expertise has<br></br>
@@ -68,6 +84,7 @@ export default function About() {
 
                 </Grid>
             </Paper>
-        </Box>
+
+        </div>
     );
 }

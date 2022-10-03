@@ -11,6 +11,7 @@ body {
   font-family: 'Neris-Thin', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #001125;
 }
 
 code {
@@ -20,6 +21,7 @@ code {
 
 .App {
   text-align: center;
+  background-color: #001125;
 }
 
 .App-logo {
@@ -30,6 +32,7 @@ code {
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+    background-color: #001125;
   }
 }
 
@@ -41,7 +44,6 @@ code {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #001125;
 }
 
 .App-link {

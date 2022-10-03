@@ -1,20 +1,17 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from "react-google-recaptcha"
 
 import {
     Box,
     Button,
-    Card,
     Grid,
     Paper,
     TextField,
-    Typography,
 } from '@mui/material'
 
 export default function Appointment() {
     const form = useRef();
-    const [submitted, setSubmitted] = useState(false);
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -25,7 +22,6 @@ export default function Appointment() {
             }, (error) => {
                 console.log(error.text);
             });
-        setSubmitted(true)
     };
 
     function onChange(value) {
@@ -33,7 +29,7 @@ export default function Appointment() {
     }
 
     return (
-        <Box>
+        <Box >
             <Grid
                 container
                 spacing={2}
@@ -42,69 +38,55 @@ export default function Appointment() {
                 alignItems="center"
             >
 
-                <Paper sx={{ width: 1084, height: 996, backgroundColor: "#ffebbe" }}>
-                    {submitted === false &&
-                        <form
-                            ref={form}
-                            sx={{
-                                '& .MuiTextField-root': { m: 1, width: '25ch' },
-                            }}
-                            noValidate
-                            autoComplete="off"
-                            onSubmit={sendEmail}
-                        >
+                <Paper sx={{ width: 884, height: 696, backgroundColor: '#ffebbe' }}>
+                    <Box
+                        ref={form}
+                        sx={{
+                            '& .MuiTextField-root': { m: 1, width: '25ch' },
+                        }}
+                        noValidate
+                        autoComplete="off"
+                        onSubmit={sendEmail}
+                    >
 
-                            <div>
-                                <br></br>
-                                <TextField
-                                    required
-                                    id="outlined-required"
-                                    label="Name"
-                                    type="text"
-                                    name="name"
-                                />
-                            </div>
+                        <div>
+                            <TextField
+                                required
+                                id="outlined-required"
+                                label="Name"
+                                type="text"
+                                name="name"
+                                sx={{ backgroundColor: '#ffebbe' }}
+                            />
+                        </div>
+                        <div>
+                            <TextField
+                                required
+                                id="outlined-disabled"
+                                label="Email"
+                                type="email"
+                                name="email"
+                            />
+                        </div>
+                        <div>
 
-                            <div>
-                                <br></br>
-                                <TextField
-                                    required
-                                    id="outlined-disabled"
-                                    label="Email"
-                                    type="email"
-                                    name="email"
-                                />
-                            </div>
-                            <div>
-                                <br></br>
-                                <TextField
-                                    required
-                                    id="outlined-multiline-static"
-                                    label="Message"
-                                    multiline
-                                    rows={4}
-                                />
-                            </div>
-                            <div>
-                                <br></br>
-                                <ReCAPTCHA
-                                    sitekey={process.env.REACT_APP_SITE_KEY}
-                                    onChange={onChange}
-                                />
-                                <br></br>
-                                <Button type="submit" value="Send" variant="text">Send Request</Button>
-                            </div>
-                        </form>}
-                    {submitted === true &&
-
-                        <Card>
-                            <Typography>
-                                Thank you! We will be in touch!
-                            </Typography>
-                        </Card>
-                    }
+                            <TextField
+                                required
+                                id="outlined-multiline-static"
+                                label="Message"
+                                multiline
+                                rows={4}
+                            />
+                        </div>
+                        <div >
+                            <ReCAPTCHA
+                                sitekey={process.env.REACT_APP_SITE_KEY}
+                                onChange={onChange}
+                            />
+                            <Button type="submit" value="Send" variant="text">Send Request</Button>
+                        </div>
+                    </Box>
                 </Paper>
-
             </Grid>
         </Box >
     );
