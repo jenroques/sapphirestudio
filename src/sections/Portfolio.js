@@ -1,37 +1,56 @@
 import React from 'react'
-import SimpleImageSlider from "react-simple-image-slider";
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
-const images = [
-    { url: "https://previews.dropbox.com/p/thumb/ABqq4idyk_uylZgrfhKCN5i-BJtemuvCMrnMCAlH2i0YOITO2pAZ0sHXCerUpy3Mq1K3ZuldwjGWtfN4IpU1SZzWhX2jsWiHenOZBcka6CJYIS5FsJTOGGNtsiC7fwhTJENXhp4npoheRoqz32EjL5TvIy2PXzTTuJyuhg9XfvdKg0-4H_y3ibSl32feiqTByiTSYI4yADw0NzjsqCT8fcM8gZxzBhWlCWjHT11hEZUH0RPQqrZwtaCMpR37WTksAA294icsJXLMzUx7O3ouoJxso1gJiyMe3kUhdUhw0XcWLTNifbFyP1US-6bIkCsiNYr9lBbhlvV6jwSw0an5Tk05La99lLrPMXOVfXV3aq4vcKRVfuwYl9kYQdhLK6K4tgI/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABoewyUMCxqUNppTghrdrR6zxw2RJHNecFaIlMrKO_cFIjQ6tumdj0fJSeh0cQe5WtJqpZa5AMQyR8WIH2q79ofVMF8qfyan7H8klQm1UGjZCdDNmU3JI1sPRd7uy3NVdjKq1tSBKBTeq_9XqX5kRhIxmyNQPSdvksZn5OE9nafQY7bkRoEqF4ADHI9KychJIOEhQm6amjXhyBnbvyJgVeB2mZjIvoNnPWSl3jGU6X7T571GRS3PCEWuS2jgLLS_MLvymGG8eI-RaswGDQrCN54JgVY10_j7J1yjB518r7b_WYTP5sMLC_4Ba4MlZOHktXibx996QyHQ0kK_7ixvq0U5yTK9ZvxDnR1TYCtO8H2-cPUsmKPCyPzALAabr1n2rDc/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABoIumBhJXMI0j0p82NUnLluQoXHKP-gbJdpkq6LXEJ704002p1wa7D4SYIXNH7Y_EITjODUeA-LfyfH5c-fwwCsZ0X0Or2BqnSBtGcKADY2Mdus57JeT-gnnvRwgAeOG32mQbtdJhXt43Y0h-iFw2Kcbe6yKM4LanFbj8x4gQNYKWWgrFJa05T9a-jTCylW0j-YE_h_xk1up9f_RSCg-amx1gRAoIc4UyFNwf_O4ST3KoGrPN3VJXKI5bVEkZR9_z6bIeMSUrlaXn8A2EEc1gwdbio9UQUqJQT1wvkeAOoqqOXjtpWGDSfASl8w_FerkMyIk5MjW90wmO-sKJNUN34E1v-GFZIYdiJq4Sq-KDsMGz-wirmta4E0l9CZ5dR_oEo/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABpwHLZrBAB6yQPhbQv_qk0_T-5NoVr_SaMaX6dDSh-X4FK-INM-Qjd_i6jDl_EQZfa6m6o36TRyBNuAnH7O3Y2FyErELvTXLKd49GUAAS5cknIdCFZwkX_EvLd4gonBqlMQ2pZyUEaZt1s3oXtiDvruUsYHzlTT9on6JHU-WfEETn3_Cxfpqqf_K0XT7vG0sjQzxkqqpXFI15CAztsTMubHZq7TyOGGUhnQLXeCUWwfVZG8u5iUbUg_nrApiWltllYa5rVP10nZQOLZJX2niAH0WJWotDKHIMpEjys1GwMAjmJ2vsFQU269TkIras-BtelduwGdmbOn5Yf72Yay3lwLJJPywAJOrezkpJ_qOPPhXs7pEzrnAAWskWodYDfZrT8/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABoYyiEXNGV-bKFfn03fivOi7pJeaKWG59Nj-WeVgP3qq0yimczwpdAZrIAiHP69QdEIeFlIzLd5xvlUuA03tR6vw1aT2X9LfidLFI98mDMT3gAulHn8X6UGYeEO7Hpv6dEieOPZxjqNKftuSM0fMC0TMaLTAwdiJxtEquMXH8wPJG33GhjsCRmnlD4XO3lc-EHgknt5S7KiCK5_KpBHCW9p0q_mmTct9tm7eCbfcFKrdjkn0C5Wi2RJiduw7uJxAMGjOFoKj5P3Zn3mXafdN6iNo3b0MS3NFDDbKslgkOx7plJJeSVS9X7lD1s-OGyW2EbcodUCH9lM-0Evmtqs0qm2wFmW2R2td3xXR400ZRfYFgRNG0dm-SWVa62ZaH8JkHg/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABphtmqDPotJlm2UK5X6sre6dK3QdkIaEKHWPBcLJwBCwANo_MwOeOG50I0YkR_0glL2JrRVw3HeDDR0TpMS3nV1tOyxfl-QPKLX4t3TIJgUMLDUZraDaE4nPstda4ICGwrx5CrwBW_hkwq_SvGoQruXz4Ct-o7-13XJpO0brr4MID208Mdz5I7VMP33WIOwurWoG5QtUjVaqUCQ-RVVJM_67ABgkuJopNYQ8OXZzgmepJvFROQCRTQj98oBNVX9hxztHQ_WSQemQrsbD8DprK-unv4qCwO1tdMGub2NPME5o-ofslmAWMs98EVgVkByb7-i8y5PpcDzynt2ss7QoNZNnJiVPVvzBCFjsjUEKF_ChcUv7-MaKZCMaH4dkO9LFVI/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABqipq6imkMycin3rDL-P3tEY4spiaenqmhPqLXY26AJQd9yRLzhjyPfKN0i6fYD8zN5FHsug6zT6x-bk6mZ5HR5coMOvBq39hnVgVCO7rD3VixHHejKCQAq7nqIkohWu1cD6tGaysxeVwKw8q9G4cn0gd0lZn0v03w3e-FvDdsXZHi5PGuHKUxhPA-45HLhuhw_7RwPRZaCcGvoXxH_Rn2gYJAT0UVy4h3W9Im_2dTcY3IPRJ_fJJoyx8JWdZjTfy8gnnRyVV8NAxOZK-YR5LtZFvD9EqlrnMgK2jBxr1szmd0vedZo4COKOsTqxdE99aRGYA_wRdODhrR1hApymh5MMYtyDv_s1qTuaFxdBVJAq4FnypUVN_NvkLqFtM-w4wM/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABpcVFDHvY8A_7yxEWrMFZ3nVXVXV4kC3e8AHpFvLO44klRxjM4WMw9JE8J51SJ35Mw-U2bJ1NiPnWZSPoRTqxXSPjHFPidFiHBopZPWUIOFeNVcPO9fhUANOY1bs54bkdncfjF29IP_xch4J61XNLIvBYetuOoA_TjpYZRsQP1vd8-B72N3w6cjMh2kn1zbKooIDvmDZp2OsGmMvfL4nfBQOTEwnPdNqSr5stMgndc8aOt5UXqzfkiFl95AFWrR7iHKtz0sSf618-Gvwz3LEqVpbV5sJkI5mnFRYwRmmFSzryNDGL6tBdeX0j4d6CP7METlHqAAR8ICinW10dCn6uCijuotrWcp7oio82W4e3DDvdF5T6ROYjJ_IhNm8__j8-4/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABpDvAtyPTihY12KcOs6u3z4jz9nLemlC246bQ6R-q3g1q_pZxhqry_QRW5990JVVqniCC9Z1iqlfmX9uHAWyqgVKGarw7A33AXLaHLn361IiX_Ymn8g5Puy7ultZ4kBocpPu-itVYctTSMx5EMoGt2je5zJwYxV0Ku3RPNxCxL_vhgMl43DiUYVJzZfXZV9Sl2KhvuOPG4iEWbjrExbdJIaad0ux1fmJC3dAs7Mkzy8aFdZTX6bwmo00hZxRVYH4YFjMzexomnWEzlQnTSLxq6b1-fwfikZQJ5vKhB1vLzf6VwGHNdXpkBBEe9yO9dpB9ZpD7CPBa58G7Pf0780b226A2xDfebE2Pxp7g6y0OG9fDSVLmQ1KNXBcUIwMluWJaA/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABregS_knodROjojXNib9oU07QVfLlLRpU03hKv9SrPkQRuObWJFh-3wmno0-3yf8lnVBnYFPfEE92wLb7zJm4IEUndce8rPC4y-f0UKh6JilkDXQflrVGIlAeGJpdXnyWpZhMy0KZm8gbdUjhvh3-pUWO-qT2Zsg9IWSC2cQ3nzEXmpWKaZw6NIRiw9a4kdY2S8_N5q_ePDbNcGL6EZzSnYwAHgUcNgZL3OhAqKlYD622OBfM3Ba8IzZhfvOpNgpzHnSEzbzAshexhFWoySdYfub4mwSyg41fXZ6tejN9mvf6AwbJHJG00CNf5GNgkzyUdfDuNAeQmY1c9O_KHfHoJiS44G1RE0PzbMKtR6Qyn1d7EnH5xggnDFpwUdF4vNhz4/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABq47_Iz9lATC-klPVdOdmQPOg2e1e1farJIWAhMFUuXWFfh5V-q8Xh6BqMT8rcMVWbQKQfNdJJvJmO6y57LPVXnUyKugELHQ91YZKypou-GFY6Bi5lw_tROzPk9P5rLLcdpbl6apBR8zVk9lszwnyJ7hbmwme5_vd1XI-SLnGElktbmNscq1h5byQhbDcYavkqcvd71ljlYqW7DWZGegu3ZI9MiCiHATeF0hs3_ZE7Z5OQ-G9_jXiFd2DyuOrCk2MNcVcitYPZjCHXNqskLFlViTKTmPWYdqpyg81gv0OSvDxXa9yQ7vlnlcOaHEFxHnlw8KYqibQBz0SWYDfl4YJwC1FDFn313pfjDPA2fJakuYaxBN4whGnfDNhR4wkBtloo/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABqOHGIaSPAmPaVRcL-9txEP6ZJi-KfvKuIyEXwzHeFHsn9LbmaqntHba7Evl8Am_XnStQIKxdvQfMMxAkRNyvEV1Ga3G3YxZcIaVawjIHWZeGUq_0t53zhrVccabQuRAmeQsbzP1hPkwvqT3wm4JMYMIgZDp5nMwJyhFAVLnzpzjSgE5s6UTkfCoyxErYQz3REbQqYVD5VJhc6GHrDUrHdO4bhBslTP3zSWThYBacXfuieCeQplibH9QKCmc18g5w1zp6SGlgZc3iIG1PQFoI3rQIvUpdKaS4RBToYZZOxphB7zo-j2GXpsVdegzRWWU_OquUT7zH6_oZwGXQR-5Z-anluu6rehidF_3D0t3z7EaEFQ0Za0QeMkCF2pP33yCbg/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABr6BxU18XeoTG2d8s5qDPH9A5Yhkk_5zU5mlIdK1QiMTU_685zG68v7QKcz3ZLMAFUzqPSoAM4HitG5d-Tw2-DGvgRLS-afQXbihmz3Zpbcy2WfDt9KZq20OA2u8p72hDKw_Xo4lbk0turosH2BYsAEcBUl9D4mURRf53prmge9osgxFEbXQcSBhG2UYSxxGiMWf2-8M3Uiudn_3tKBVXXvqGPhN5rxTcIEkIr3v_Qq_XxdLmt6tHjj1vVvasBAZb93_4ABaXf4A4C_DEpSFNmd09VC8WWd6Zks_qaCYIAUItvFv46jqXA7Z8sMCd4C7_KDa5zbOSTeipsgdZGj8F_n0yVK2hJSXI_drARnySKgC_jrFjPVTr1jcAXCHcCGRKo/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABr_l_k4Yi9NyRCuVM4Amprx6EEJ2g5STAXCc8kLZwu7_ebiCJD0-wmZ6goM2pW5IopHhd-reM3X-baFN7KWwx37sSEictf5Obkl9guWrAnpRP_6X__qjEb8lw5hchwg60dpb0j-9FDeoxBYebRBSFrRsUwBp8qbf0cpPEYHN2acN5Hhe1yGnT5Sb-tktUbP58MKDBVICjOiazUCNsYIwl2FhINXIUhYtpj2Yeezhfj8n6UYjPFVG0Nfq3mOkbr974QxR1O6WOD1h1Mh_291mSXS70UgeiTQagk9oWMvhBAGO13p-ODQfT1mhRIxk8uWPx6n9b4IVbvOJMM2xLcRbZGoFnTH56MZCXsYOTohHBKw8g7KBRq8nvd-y7LhEo0ir9k/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABrj73Zrk3oHlgh6GsrrVQ-4LvbzHLjmicC3C6pvM5ujNSYyw9AO0OcVy2Xz7Iwxn6htN4alqtP3A1E-YNdHYfgnlD35JptsrzuWqcs5ikcOkFFv1msyPnuKi1k85GD3tZxIP6LFGJDRUIJshTN2pymq9TBcGyfIiTnffqefOQLU6ttEjJbDiA_FkbLXvuQLcrmUZmH3Unc5ALvsoYaAfiSAgQTbh9q3Q1E2D0qsgThm3WLmu8Cgnq8QG8Yaxg_V6SsgfvoNYj0skr-zqUsGK5R2MNoTRaqHjlYrpQQfZHmlhXh4JZQRKgNps0yOEYClc11iTNFot42D7LhjQ6sav-wmjN0PBrxTzv23tAHiHxvQ7U2qjLVoyEiOh9HvSXvVPNM/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABq1Oy-ne1-zcyk2E2_aHLmv9DaTfzsSZ3-EgNs1tFU9biK3SLY3XGuIS8vZGVafbZ7_1iBHKpy-N-a5BFkApP9w_735mEiHskZNSKgXmWjFyOSq9-RhSrIprUc_opnetarX1dt_ADwIJuh4ZLW_3rRtrQlVJC2C21xSq4gpHx_8arQKySYw6675R_JU3enAQuoqr1vpkO9M2GP6ohY29r-MbTfSpE-Wiuczce3gsvbM7jTprgMg1isweJLxqAuO5es076qsFAdTQHvafgYk3xfnrN-ra1n4VH_tekpQZ__JzPk3oRIL08ga3IyTuaH190ucK-fvgw-vxBpp4Dz_YoO_PuANVG94ewPP6BcP_K-XH4-oCsa2h1iyXvoqCY0jaMY/p.jpeg" },
-    { url: "https://previews.dropbox.com/p/thumb/ABoDFIayZWmHd6Adgh5KO4xVsGk3sy1N1wrUQz_4IsPWpnT51W7SxKTG3o9y8wxjNlFgtosXGIpS-yxbP-WXKxdJbGC9XJzBMidqKNFW10Ys2o1TsZVhguMy9ur0ByowrNSH4npPE9BUtu_ipNOcZS85YbUBl2JNDf_FLV82iuaVI4knr-79CHQ5WYkbzttl6BXQu5Upk3N_iimD7PrlAcQrbPtalIMAocMb6oLOaS4Is6rRYHmCFMJRL37YwMboevRaKa4ugkX-U2QMhiVlgkJ1NQ9M22dibLOup4l7TyKCyP9sBND5nRCFQzAy0pd905-rXjLodcKZC3WlZMkThXQLyQZTXAZoNS8Xa_7oVGLKbz0iHeyEQTm_mVeEqnHrXE1yStM5TkomejXeenorOgfGJipY_-z3Fh9B5NdzAJ5lRNTjwYcksEFw_ApH29WWYMc/p.jpeg" },
-];
+
+
+import Image1 from '../images/img1.jpeg';
+import Image2 from '../images/img2.jpeg';
+import Image3 from '../images/img3.jpeg';
+import Image4 from '../images/img4.jpeg';
+import Image5 from '../images/img5.jpeg';
+import Image6 from '../images/img6.jpeg';
+import Image7 from '../images/img7.jpeg';
+import Image8 from '../images/img8.jpeg';
+import Image9 from '../images/img9.jpeg';
+import Image10 from '../images/img10.jpeg';
+import Image11 from '../images/img11.jpeg';
+import Image12 from '../images/img12.jpeg';
+import Image13 from '../images/img13.jpeg';
+import Image14 from '../images/img14.jpeg';
+import Image15 from '../images/img15.jpeg';
+import Image16 from '../images/img16.jpeg';
+
 
 
 export default function Portfolio() {
+
+    const handleDragStart = (e) => e.preventDefault();
+    const items =
+        [
+            <img style={{ width: 500, height: 600 }} src={Image1} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image2} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image3} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image4} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image5} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image6} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image7} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image8} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image9} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image10} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image11} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image12} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image13} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image14} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image15} onDragStart={handleDragStart} role="presentation" />,
+            <img style={{ width: 500, height: 600 }} src={Image16} onDragStart={handleDragStart} role="presentation" />,
+        ]
+
+
     return (
         <div>
-            <SimpleImageSlider
-                width={996}
-                height={1084}
-                images={images}
-                showBullets={true}
-                showNavs={true}
-            />
+
+            <AliceCarousel mouseTracking items={items} />
         </div>
     )
 }

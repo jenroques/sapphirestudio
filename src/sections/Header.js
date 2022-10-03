@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { styled } from '@mui/system';
+import { AppBar } from '@mui/material';
 import TabsUnstyled from '@mui/base/TabsUnstyled';
 import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
@@ -82,12 +83,12 @@ const TabsList = styled(TabsListUnstyled)(
   ({ theme }) => `
   min-width: 800px;
   background-color: ${blue[500]};
-  border-radius: 12px;
   margin-bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: space-between;
+  position: static;
   box-shadow: 0px .5px .5px ${theme.palette.mode === 'dark' ? gold[900] : gold[200]};
   `,
 );
@@ -96,17 +97,19 @@ const TabsList = styled(TabsListUnstyled)(
 
 export default function Header() {
   return (
-    <TabsUnstyled defaultValue={0}>
-      <TabsList>
-        <Tab>Home</Tab>
-        <Tab>About Sheana Helton</Tab>
-        <Tab>Portfolio</Tab>
-        <Tab>Request Appointment</Tab>
-      </TabsList>
-      <TabPanel value={0}> <Home /> </TabPanel>
-      <TabPanel value={1}> <About /> </TabPanel>
-      <TabPanel value={2}> <Portfolio /> </TabPanel>
-      <TabPanel value={3}> <Appointment /> </TabPanel>
-    </TabsUnstyled>
+    <AppBar position="static">
+      <TabsUnstyled defaultValue={0}>
+        <TabsList centered>
+          <Tab>Home</Tab>
+          <Tab>About Sheana Helton</Tab>
+          <Tab>Portfolio</Tab>
+          <Tab>Request Appointment</Tab>
+        </TabsList>
+        <TabPanel value={0}> <Home /> </TabPanel>
+        <TabPanel value={1}> <About /> </TabPanel>
+        <TabPanel value={2}> <Portfolio /> </TabPanel>
+        <TabPanel value={3}> <Appointment /> </TabPanel>
+      </TabsUnstyled>
+    </AppBar>
   );
 }
