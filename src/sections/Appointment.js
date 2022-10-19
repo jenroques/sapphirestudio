@@ -28,67 +28,35 @@ export default function Appointment() {
         console.log("Captcha value:", value);
     }
 
+    function Mailto({ email, subject, body, ...props }) {
+        return (
+            <a style={{ color: 'black' }} href={`mailto:${email}?subject=${subject || ""}&body=${body || ""}`}>
+                {props.children}
+            </a>
+        );
+    }
+
     return (
-        <Box >
-            <Grid
-                container
-                spacing={2}
-                direction="column"
-                justify="space-between"
-                alignItems="center"
-            >
 
-                <Paper sx={{ width: 884, height: 696, backgroundColor: '#ffebbe' }}>
-                    <Box
-                        ref={form}
-                        sx={{
-                            '& .MuiTextField-root': { m: 1, width: '25ch' },
-                        }}
-                        noValidate
-                        autoComplete="off"
-                        onSubmit={sendEmail}
-                    >
+        <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            style={{ minHeight: '100vh' }}
+        >
 
-                        <div>
-                            <TextField
-                                required
-                                id="outlined-required"
-                                label="Name"
-                                type="text"
-                                name="name"
-                                sx={{ backgroundColor: '#ffebbe' }}
-                            />
-                        </div>
-                        <div>
-                            <TextField
-                                required
-                                id="outlined-disabled"
-                                label="Email"
-                                type="email"
-                                name="email"
-                            />
-                        </div>
-                        <div>
+            <Paper sx={{ width: 884, height: 696, backgroundColor: '#ffebbe' }}>
+                <Grid item xs={3}
+                    sx={{ ml: 40, mt: 30 }}>
+                    <Mailto email="sheanahelton@gmail.com" subject="Appointment Request" body="Sapphire Studio Appointment Request" style={{ color: 'black' }}>
+                        Request an Appointment
+                    </Mailto>
+                </Grid>
+            </Paper>
+        </Grid>
 
-                            <TextField
-                                required
-                                id="outlined-multiline-static"
-                                label="Message"
-                                multiline
-                                rows={4}
-                            />
-                        </div>
-                        <div >
-                            <ReCAPTCHA
-                                sitekey={process.env.REACT_APP_SITE_KEY}
-                                onChange={onChange}
-                            />
-                            <Button type="submit" value="Send" variant="text">Send Request</Button>
-                        </div>
-                    </Box>
-                </Paper>
-            </Grid>
-        </Box >
     );
 };
 
