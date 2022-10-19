@@ -49,7 +49,7 @@ export default function Appointment() {
 
             <Paper sx={{ width: 884, height: 696, backgroundColor: '#ffebbe' }}>
                 <Grid item xs={3}
-                    sx={{ ml: 40, mt: 30 }}>
+                    sx={{ ml: 40, mt: 35 }}>
                     <Mailto email="sheanahelton@gmail.com" subject="Appointment Request" body="Sapphire Studio Appointment Request" style={{ color: 'black' }}>
                         Request an Appointment
                     </Mailto>
