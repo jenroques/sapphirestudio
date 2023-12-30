@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "title": "Facebook",
+    "link": "https://www.facebook.com/SheanaMarieArtistry/",
+    "icon": "fab fa-facebook-f"
+  },
+  {
+    "id": "2",
+    "title": "Instagram",
+    "link": "https://www.instagram.com/sheanamarie_artistryllc",
+    "icon": "fab fa-instagram"
+  }
+]
