@@ -2,7 +2,10 @@
   "name": "sapphire",
   "version": "1.0.0",
   "description": "Beauty Salon React JS Template",
-  "author": "Adveits",
+  "author": "Jennifer R",
+  "engines": {
+    "node": "18.13.0"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
