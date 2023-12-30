@@ -44,7 +44,7 @@ class ServicesHome extends Component {
                     <div className="adv-swiper-container">
                         <div className="adv-swiper-wrapper services-items clearfix">
 
-                            <a title="Hair" className="adv-swiper-slide services-item" href={process.env.PUBLIC_URL + "/services-inside"}>
+                            <a title="Hair" className="adv-swiper-slide services-item">
                                 {/* <div className="services-item-content">
                                         <h3 className="services-item-t-head">Face & Body</h3>
 
@@ -60,7 +60,7 @@ class ServicesHome extends Component {
                                 <div className="img-bg-color"></div>
                             </a>
 
-                            <a title="Hair" className="adv-swiper-slide services-item" href={process.env.PUBLIC_URL + "/services-inside"}>
+                            <a title="Hair" className="adv-swiper-slide services-item" >
                                 {/* <div className="services-item-content">
                                         <h3 className="services-item-t-head">Hair Treatments</h3>
 
@@ -76,7 +76,7 @@ class ServicesHome extends Component {
                                 <div className="img-bg-color"></div>
                             </a>
 
-                            <a title="Hair" className="adv-swiper-slide services-item" href={process.env.PUBLIC_URL + "/services-inside"}>
+                            <a title="Hair" className="adv-swiper-slide services-item">
                                 {/* <div className="services-item-content">
                                         <h3 className="services-item-t-head">Hands & Feets</h3>
 
@@ -92,7 +92,7 @@ class ServicesHome extends Component {
                                 <div className="img-bg-color"></div>
                             </a>
 
-                            <a title="Hair" className="adv-swiper-slide services-item" href={process.env.PUBLIC_URL + "/services-inside"}>
+                            <a title="Hair" className="adv-swiper-slide services-item" >
                                 {/* <div className="services-item-content">
                                         <h3 className="services-item-t-head">Haircuts for Men</h3>
 
