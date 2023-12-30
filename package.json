@@ -41,8 +41,7 @@
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
-    "heroku-postbuild": "npm install --legacy-peer-deps",
-    "build": "react-scripts build",
+    "build": "npm install --legacy-peer-deps && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
