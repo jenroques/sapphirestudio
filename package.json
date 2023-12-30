@@ -4,7 +4,7 @@
   "description": "Beauty Salon React JS Template",
   "author": "Jennifer R",
   "engines": {
-    "node": "18.13.0"
+    "node": "16.x"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
